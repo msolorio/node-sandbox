@@ -8,5 +8,12 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-plugin-react": "^7.5.1"
+  }
 }
