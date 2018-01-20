@@ -1,21 +1,56 @@
-function Parent(name) {
-  this.name = name || 'Adam';
+function Article() {
+  this.tags = ['js', 'css'];
 }
 
-Parent.prototype.say = function() {
-  return `my name is ${this.name}.`;
-};
+function BlogPost() {}
+BlogPost.prototype = new Article();
 
-function Child() {}
+function TravelBlogPost() {
+  Article.call(this);
+}
 
-Child.prototype = new Parent();
-
-const kid = new Child();
+const blogPostInstance = new BlogPost();
+const travelBlogPostInstance = new TravelBlogPost();
 
 console.log(
-  'kid.say():',
-  kid.say()
+  'travelBlogPostInstance.tags:',
+  travelBlogPostInstance.tags
 );
+
+// console.log(
+//   'blogPostInstance.hasOwnProperty(\'tags\'):',
+//   blogPostInstance.hasOwnProperty('tags')
+// );
+//
+// console.log(
+//   'travelBlogPostInstance.hasOwnProperty(\'tags\'):',
+//   travelBlogPostInstance.hasOwnProperty('tags')
+// );
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// function Parent(name) {
+//   this.name = name;
+// }
+//
+// Parent.prototype.say = function() {
+//   return `my name is ${this.name}.`;
+// };
+//
+// function Child(name) {
+//   if (name) {
+//     this.name = name;
+//   }
+// }
+//
+// Child.prototype = new Parent('default');
+//
+// const kid = new Child('Henryetta');
+//
+// console.log(
+//   'kid.say():',
+//   kid.say()
+// );
 
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////

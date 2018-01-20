@@ -1,6 +1,90 @@
-const Person = function(name) {
+function Product(name, price) {
   this.name = name;
-};
+  this.price = price;
+}
+
+function FoodItem(name, price) {
+  Product.apply(this, [name, price]);
+  this.category = 'food';
+}
+
+function householdItem(name, price) {
+  Product.apply(this, [name, price]);
+  this.category = 'household';
+}
+
+const muffin = new FoodItem('muffin', 1);
+const toiletCleaner = new householdItem('toilet cleaner', 3);
+
+console.log(
+  'muffin:',
+  muffin
+);
+
+console.log(
+  'toiletCleaner:',
+  toiletCleaner
+);
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+// function Parent(name) {
+//   this.name = name || 'default';
+// }
+//
+// Parent.prototype.say = function() {
+//   return this.name;
+// };
+//
+// Parent.prototype.planet = 'Earth';
+//
+// function Child(name) {
+//   if (name) {
+//     this.name = name;
+//   }
+// }
+//
+// Child.prototype = new Parent();
+//
+// const jim = new Child();
+//
+// console.log(
+//   'jim:',
+//   jim
+// );
+//
+// console.log(
+//   'jim.say():',
+//   jim.say()
+// );
+//
+// console.log(
+//   'jim.hasOwnProperty(\'say\'):',
+//   jim.hasOwnProperty('say')
+// );
+//
+// console.log(
+//   'jim.hasOwnProperty(\'name\'):',
+//   jim.hasOwnProperty('name')
+// );
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+// const parent = {
+//   name: 'Stevia'
+// };
+//
+// // the prototype of child points to parent
+// const child = Object.create(parent);
+//
+// console.log(
+//   'child.name:',
+//   child.name
+// );
+
+// const Person = function(name) {
+//   this.name = name;
+// };
 
 // Person.method = function(methodName, yourFunc) {
 //   Person.prototype[methodName] = yourFunc;
@@ -14,32 +98,32 @@ const Person = function(name) {
 //   this.name = newName;
 // });
 
-Person.prototype.getName = function() {
-  return this.name;
-}
-
-Person.prototype.setName = function(newName) {
-  this.name = newName;
-}
-
-const hubert = new Person('Hubert');
-
-console.log(
-  'hubert:',
-  hubert
-);
-
-console.log(
-  'hubert.getName():',
-  hubert.getName()
-);
-
-hubert.setName('Bobolus');
-
-console.log(
-  'hubert.getName():',
-  hubert.getName()
-);
+// Person.prototype.getName = function() {
+//   return this.name;
+// };
+//
+// Person.prototype.setName = function(newName) {
+//   this.name = newName;
+// };
+//
+// const hubert = new Person('Hubert');
+//
+// console.log(
+//   'hubert:',
+//   hubert
+// );
+//
+// console.log(
+//   'hubert.getName():',
+//   hubert.getName()
+// );
+//
+// hubert.setName('Bobolus');
+//
+// console.log(
+//   'hubert.getName():',
+//   hubert.getName()
+// );
 
 // function House(config) {
 //   const numOfBedrooms = config.numOfBedrooms;
